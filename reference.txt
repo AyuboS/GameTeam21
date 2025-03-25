@@ -1,0 +1,7 @@
+Label: https://tkdocs.com/tutorial/widgets.html#label
+Button: https://tkdocs.com/tutorial/widgets.html#button
+Radiobutton: https://tkdocs.com/tutorial/widgets.html#radiobutton
+Combobox (ttk): https://tkdocs.com/tutorial/widgets.html#combobox
+LabelFrame: https://tkdocs.com/tutorial/widgets.html#labelframe
+messagebox: https://docs.python.org/3/library/tkinter.messagebox.html
+Universal widget methods: https://tkdocs.com/tutorial/eventloop.html#timer-events

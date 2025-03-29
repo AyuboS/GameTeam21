@@ -196,6 +196,8 @@ class NumberGameGUI:
         self.numbers_var = tk.StringVar()
         self.numbers_combobox = ttk.Combobox(num_sel_frame, textvariable=self.numbers_var, state='readonly', width=10)
         self.numbers_combobox.pack(side=tk.LEFT, padx=5)
+        self.regenerate_button = tk.Button(num_sel_frame, text="⟳", command=self.regenerate_numbers, width=3)
+        self.regenerate_button.pack(side=tk.LEFT)
         self.update_numbers_dropdown()
 
         algo_frame = tk.Frame(self.config_frame)
@@ -278,6 +280,10 @@ class NumberGameGUI:
 
          return generated
 
+    def regenerate_numbers(self):
+        """Regenerates the list of numbers in the dropdown"""
+        self.update_numbers_dropdown()
+
     def update_algorithm(self):
         self.selected_algorithm = self.algorithm_var.get()
 
@@ -286,6 +292,7 @@ class NumberGameGUI:
         combobox_state = tk.DISABLED if state == 'disable' else 'readonly'
 
         self.numbers_combobox.config(state=combobox_state)
+        self.regenerate_button.config(state=widget_state)
         self.algorithm_radio_minimax.config(state=widget_state)
         self.algorithm_radio_alpha_beta.config(state=widget_state)
         self.first_player_human.config(state=widget_state)
@@ -467,8 +474,7 @@ class NumberGameGUI:
         if self.game_bank > 0:
             if last_player_turn == 0:
                  self.player1_score += self.game_bank
-            else:
-                 self.player2_score += self.game_bank
+            else: self.player2_score += self.game_bank
             self.game_bank = 0
 
         self.update_display()
